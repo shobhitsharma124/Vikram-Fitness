@@ -1,3 +1,257 @@
 <div>
-    Place fiteness Trainer appointment...
+  <form [formGroup]="fitnessForm">
+    <small style="color: red">*Field required</small>
+    <h3>Personal Details</h3>
+    <h4>Name</h4>
+    <div class="row">
+      <div class="col-4">
+        <input
+          type="text"
+          placeholder="Enter First Name"
+          formControlName="firstname"
+          name="fname"
+          autofocus
+        />
+        <br />
+        <label> <span style="color: red">*</span> First Name: </label>
+      </div>
+
+      <div class="col-4">
+        <input
+          type="text"
+          placeholder="Enter Last Name"
+          formControlName="lastname"
+          name="lname"
+        />
+        <br />
+        <label> <span style="color: red">*</span>Last Name: </label>
+      </div>
+    </div>
+    <br />
+    <fieldset>
+      <h4>Shipping Address</h4>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Enter Shipping Address"
+          formControlName="streetaddress"
+          name="shippingAdd"
+          class="col-11"
+        /><br />
+        <label> <span style="color: red">*</span>Street Address: </label>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <div class="col-4">
+          <input
+            type="text"
+            placeholder="city"
+            formControlName="city"
+            name="city"
+          />
+          <br />
+          <label> <span style="color: red">*</span>City: </label>
+        </div>
+        <div class="col-4">
+          <input
+            type="text"
+            placeholder="State"
+            formControlName="state"
+            name="state"
+          /><br />
+          <label> <span style="color: red">*</span>State: </label>
+        </div>
+
+        <div class="col-4">
+          <input
+            type="text"
+            placeholder="pin code"
+            formControlName="pincode"
+          /><br />
+          <label><span style="color: red">*</span>Zipcode:</label>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-4">
+          <select formControlName="country">
+            <option>India</option>
+            <option>America</option>
+            <option>Australia</option></select
+          ><br />
+          <label><span style="color: red">*</span>Country</label>
+        </div>
+
+        <div class="col-4">
+          <label class="col-2"> +91 </label>
+          <input
+            type="text"
+            placeholder="Enter Mobile Number"
+            formControlName="phonenumber"
+            name="lname"
+          />
+          <br />
+          <label> <span style="color: red">*</span> Mobile Number: </label>
+        </div>
+      </div>
+      <div class="col-4">
+        <input
+          type="email"
+          placeholder="Enter Email, Yahoo, Hotmail"
+          formControlName="email"
+          name="email"
+        />
+        <br />
+        <label> <span style="color: red">*</span> Email: </label>
+      </div>
+    </fieldset>
+
+    <br />
+    <div>
+      <label> <span style="color: red">*</span> Age</label>
+      <input type="number" formControlName="age" />
+    </div>
+
+    <br />
+    <div>
+      <label for="gender">
+        <span style="color: red">*</span> Trainee Preference</label
+      >
+      <div>
+        <label class="radio-inline">
+          <input
+            id="male"
+            type="radio"
+            value="male"
+            name="trainerpreference"
+            formControlName="trainerpreference"
+          />
+          Male Trainee</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="female"
+            type="radio"
+            value="female"
+            name="trainerpreference"
+            formControlName="trainerpreference"
+          />
+          Female Trainee</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="None"
+            type="radio"
+            value="NO"
+            name="trainerpreference"
+            formControlName="trainerpreference"
+          />
+          No Preference</label
+        >
+      </div>
+    </div>
+
+    <br />
+    <div>
+      <label for="phisio">
+        <span style="color: red">*</span> Do you need Phisio?</label
+      >
+      <div>
+        <label class="radio-inline">
+          <input
+            id="yes"
+            type="radio"
+            value="Yes"
+            name="physiotherapist"
+            formControlName="physiotherapist"
+          />
+          Yes</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="no"
+            type="radio"
+            value="no"
+            name="physiotherapist"
+            formControlName="physiotherapist"
+          />
+          No</label
+        >
+      </div>
+    </div>
+    <br />
+    <div>
+      <label for="package">
+        <span style="color: red">*</span> Choose a Package</label
+      >
+      <div>
+        <label class="radio-inline">
+          <input
+            id="onetime"
+            type="radio"
+            value="one"
+            name="packages"
+            (click)="amount('one')"
+            formControlName="packages"
+          />
+          one time(500)</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="fourtime"
+            type="radio"
+            value="four"
+            name="packages"
+            formControlName="packages"
+            (click)="amount('four')"
+          />
+          four time(400)</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="fivetime"
+            type="radio"
+            value="five"
+            name="packages"
+            (click)="amount('five')"
+            formControlName="packages"
+          />
+          five time(300)</label
+        >
+
+        <label class="radio-inline">
+          <input
+            id="other"
+            type="radio"
+            value="other"
+            name="packages"
+            (click)="amount('other')"
+            formControlName="packages"
+          />
+          Other</label
+        >
+      </div>
+    </div>
+    <br />
+    <label>Amount</label>
+    <input type="text" placeholder="Rupees" formControlName="inr" />
+    <input type="text" placeholder="Paise" formControlName="paisa" />
+    <label> Rs</label>
+    <br /><br />
+    <button
+      (click)="onSubmit()"
+      class="btn btn-success"
+      type="submit"
+      style="padding: 10px; font-size: 20px"
+    >
+      Submit
+    </button>
+  </form>
 </div>

@@ -1,0 +1,94 @@
+<div class = "container-fluid">
+	<div class="logo row no-gutters">
+		<div class = "col-4">
+			<img class = 'pull-left'  src = "https://www.pngrepo.com/download/16899/dumbbell.png" width= '100px' height = '100px'>
+		</div>
+		<div class = "col-4 mt-2 text-center">
+			<p class="display-3">Fitness App</p>
+		</div>
+		<div class = "col-4 mt-2 text-right  d-flex justify-content-end align-items-center">
+			<span >Hello {{userValue}}</span>
+			<button type = 'button' class = "btn btn-primary button1 h-50" (click) = 'loginFunction()'>{{logValue}}</button>
+		</div>
+	</div>
+</div>
+<hr>
+
+<div class = 'row ml-2'>
+	<nav class="navbar navbar-dark">
+		<div class="container-fluid ">
+			<div class="row w-100">
+				<div class="col">
+					
+				</div>
+				<div class="col-10 ">
+					<div class="row w-100 no-gutters">
+						<div class="col-1  mx-auto">
+							<button (click)="landingpage()" class = 'btn btn-outline-secondary button1'><p class="text-truncate">
+							Home</p></button>
+						</div>
+						<div class="col-2 mx-auto">
+							<button (click)="placeAppointment()" class = 'btn btn-outline-secondary button1'><p class="text-truncate">Place Appointment</p></button>
+						</div>
+						<div class="col-2 mx-auto">
+							<button (click)="viewAppointment()" class = 'btn btn-outline-secondary button1'><p class="text-truncate">View Appointment</p></button>
+						</div>
+						<div class="col-2 mx-auto">
+							<button (click)="contactUspage()" class = 'btn btn-outline-secondary button1'><p class="text-truncate">Contact Us</p></button>
+						</div>
+						<div class="col mx-auto">
+							<form [formGroup] = 'searchForm'>
+								<div class="input-group px-3">
+									<input class="form-control" type="search" placeholder="Search" aria-label="Search" formControlName = 'searchPref' >
+									<button class="btn btn-outline-secondary button1 input-group-prepend" type="submit" (click) = 'searchTrainee()'><i class="fa fa-search"></i> Search</button>	
+
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+
+	</nav>
+</div>
+
+<hr>
+
+<div class = "container-fluid">
+	<div class=" sidebar row">
+		<div class = "col-2">
+
+			<ul class="list-group mr-3 list-group-flush">
+				<li class="list-group-item  pb-3">
+					<button (click)="landingpage()" class = "btn btn-light btn-block text-dark w-100" ><p class="text-truncate">Home</p></button>
+				</li>
+
+				<li class="list-group-item pt-3 pb-3">
+					<button (click)="placeAppointment() " class = "btn btn-light btn-block text-dark w-100"><p class="text-truncate">Place Appointment</p></button>
+				</li>
+
+				<li class="list-group-item pt-3 pb-3">
+					<button (click)="viewAppointment()" class = "btn btn-light btn-block text-dark w-100"><p class="text-truncate">View App</p></button>
+				</li>
+
+				<li class="list-group-item pt-3">
+					<button (click)="contactUspage()" class = "btn btn-light btn-block text-dark w-100"><p class="text-truncate">Contact Us</p></button>
+				</li>
+			</ul>
+
+
+
+
+
+
+		</div>
+
+		<div class = "col-9 ">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

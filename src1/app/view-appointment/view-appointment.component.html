@@ -1,0 +1,36 @@
+<div class = "table-responsive" *ngIf = "isdataLoaded">
+    <table class="table table-striped table-bordered" >
+		<thead>
+		<tr>
+			<th >Sr.No.</th>
+			<th >Name</th>
+			<th >Address/city</th>
+			<th >Package</th>
+			<th >Trainer pref</th>
+			<th >phone</th>
+		</tr>
+		</thead>
+		 <tbody >
+		 <tr *ngFor = 'let trainee of trainee_data;let srno = index'>
+			<th scope="row">{{srno+1}}</th>
+			<td>{{trainee.firstname + " " + trainee.lastname}}</td>
+			<td>{{trainee.streetaddress}}</td>
+			<td>{{trainee.inr}}</td>
+			<td>{{trainee.trainerpreference}}</td>
+			<td>{{trainee.phonenumber}}</td>
+			<td><button class = "btn btn-light bg-warning text-white" (click) = "editTraniee(trainee.id)">Edit</button></td>
+			<td><button class = "btn btn-light bg-danger text-white" (click) = 'deleteTrainee(trainee.id)'>X</button></td>
+		</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+<div *ngIf="!isdataLoaded">
+	<div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+	</div>
+
+<div *ngIf="trainee_data.length === 0"> No data found</div>
+
